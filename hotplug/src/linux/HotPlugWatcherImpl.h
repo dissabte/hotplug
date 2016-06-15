@@ -5,7 +5,7 @@
 /*!
  * \file HotPlugWatcherImpl.h
  * Contains HotPlugWatcher Linux implementation.
- * \warning This file is not a part of watcher library public interface.
+ * \warning This file is not a part of hotplug library public interface.
  */
 
 #include <hotplug/HotPlugWatcher.h>
@@ -16,7 +16,7 @@
 /*!
  * \class HotPlugWatcher::Implementation HotPlugWatcherImpl.h "HotPlugWatcherImpl.h"
  * \brief The HotPlugWatcher::Implementation class uses udev library functionality to watch for devices events
- * \warning This class is not a part of watcher library public interface.
+ * \warning This class is not a part of hotplug library public interface.
  */
 
 class HotPlugWatcher::Implementation

@@ -20,9 +20,9 @@ include_directories(${HOTPLUG_INC_DIR})
 set(HOTPLUG_SOURCES ${HOTPLUG_INCLUDE_FILES} ${HOTPLUG_PRIVATE_INCLUDE_FILES} ${HOTPLUG_SOURCE_FILES})
 
 # Unit tests
-if(NOT UNITTEST_CPP_FOUND)
-	include(../external/unittest-cpp.cmake)
-endif()
+#if(NOT UNITTEST_CPP_FOUND)
+#	include(../external/unittest-cpp.cmake)
+#endif()
 
 add_library (${LIBRARY_NAME} ${HOTPLUG_SOURCES})
 
@@ -31,15 +31,17 @@ target_include_directories(${LIBRARY_NAME} PUBLIC ${HOTPLUG_INC_DIR})
 target_link_libraries(${LIBRARY_NAME} -ludev -lpthread)
 
 # Unit tests
-if(UNITTEST_CPP_FOUND)
-	add_subdirectory("tests")
-endif()
+#if(UNITTEST_CPP_FOUND)
+#	add_subdirectory("tests")
+#endif()
 
 # demo app
 add_subdirectory("demo/")
 
 # Doxygen
-#set(HOTPLUG_DOCUMENTATION_DIR "docs")
-#include(${HOTPLUG_DOCUMENTATION_DIR}/doxygen.cmake)
+set(HOTPLUG_DOCUMENTATION_DIR "${CMAKE_CURRENT_SOURCE_DIR}/docs")
+if (EXISTS "${HOTPLUG_DOCUMENTATION_DIR}/doxygen.cmake")
+	include(${HOTPLUG_DOCUMENTATION_DIR}/doxygen.cmake)
+endif()
 
 message(STATUS "Processing ${LIBRARY_NAME} done")
